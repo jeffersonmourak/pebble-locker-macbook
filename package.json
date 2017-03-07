@@ -1,0 +1,23 @@
+{
+  "name": "pebble-locker-macbook",
+  "version": "1.0.0",
+  "description": "Lock Your macbook with with pebble",
+  "main": "index.js",
+  "dependencies": {
+    "noble": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffersonmourak/pebble-locker-macbook.git"
+  },
+  "author": "jeffersonmourak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeffersonmourak/pebble-locker-macbook/issues"
+  },
+  "homepage": "https://github.com/jeffersonmourak/pebble-locker-macbook#readme"
+}
