@@ -27,6 +27,7 @@ noble.on('discover', (peripheral) => {
 });
 
 function explore(peripheral) {
+  let shouldLock = true;
   peripheral.connect((err) => {
     if (err) {
       console.log('Error when Connect Pebble');
@@ -34,11 +35,20 @@ function explore(peripheral) {
       return;
     }
     console.log('Connected!');
+
+    process.on('SIGINT', function() {
+        peripheral.disconnect();
+        shouldLock = false;
+        process.exit();
+    });
+
   });
   peripheral.on('disconnect', () => {
-    console.log('Pebble lost connection!');
-    console.log('Locking macbook');
-    _command(data.lockCommand);
-    noble.startScanning();
+    if (shouldLock) {
+      console.log('Pebble lost connection!');
+      console.log('Locking macbook');
+      _command(data.lockCommand);
+      noble.startScanning();
+    }
   });
 }
